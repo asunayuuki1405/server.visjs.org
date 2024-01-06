@@ -4,46 +4,12 @@
   <head>
     <meta charset="utf-8">
 <meta name="google-site-verification" content="wnz7sEI2RxVfKTWvBfEkpLF6RLQVLdJSNbsDaK48rWM" />
-    <!-- JavaScript untuk mendapatkan parameter product dari URL -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var product = new URLSearchParams(window.location.search).get('product') || 'ombak126';
-
-            // Menetapkan nilai variabel product ke properti og:site_name
-            var metaTag = document.createElement('meta');
-            metaTag.setAttribute('property', 'og:site_name');
-            metaTag.setAttribute('content', product);
-            document.head.appendChild(metaTag);
-
-            // Memperbarui konten elemen HTML di dalam body dengan nilai variabel product
-            document.getElementById('h1Tag').innerHTML = product;
-            document.getElementById('h2Tag').innerHTML = product;
-            document.getElementById('h3Tag').innerHTML = product;
-            document.getElementById('h4Tag').innerHTML = product;
-
-            // Memperbarui nilai atribut href dari elemen <link> dengan rel="canonical"
-            var canonicalLink = document.getElementById('canonicalLink');
-            if (canonicalLink) {
-                canonicalLink.href = "http://server.visjs.org/?product=" + product;
-            } else {
-                console.error("Elemen <link rel='canonical'> tidak ditemukan.");
-            }
-
-            // Memperbarui nilai atribut href dari elemen <link> dengan rel="amphtml"
-            var amphtmlLink = document.getElementById('amphtmlLink');
-            if (amphtmlLink) {
-                amphtmlLink.href = "https://gabungskrng.lol/amp6/?product=" + product;
-            } else {
-                console.error("Elemen <link rel='amphtml'> tidak ditemukan.");
-            }
-        });
-    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
 <link rel="amphtml" href="https://gabungskrng.lol/amp6/?product=">
     <link rel="canonical" href="http://server.visjs.org/?product=">
-    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin><title>
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin><title id="tittleLink" >
       Link alternatif Login di sini sekarang juga situs terkuat di bumi Jp b
  &ndash; </title>
 
@@ -65,7 +31,85 @@
 <meta name="twitter:title" content="Link alternatif Login di sini sekarang juga situs terkuat di bumi Jp b">
 <meta name="twitter:description" content="Login link alternatif di sini situs tergacor di indonesia deposit pulsa tanpa potongan jp berapapun pasti di bayar coba gabung dan bermain di sini sekarang juga raih keuntungan sebanyak - banyak nya main sekarang!">
 <link rel="icon" href="https://www.svgrepo.com/show/354160/panda.svg" type="image/x-icon" />
+   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var product = new URLSearchParams(window.location.search).get('product') || 'ombak126';
 
+            // Menetapkan nilai variabel product ke elemen <title>
+            var titleLink = document.getElementById('tittleLink');
+            if (titleLink) {
+                var existingText = titleLink.innerHTML;
+                titleLink.innerHTML = product + " " + existingText;
+            } else {
+                console.error("Elemen <title> tidak ditemukan.");
+            }
+
+            // Menetapkan nilai variabel product ke elemen <meta name="description">
+            var metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                var existingContent = metaDescription.getAttribute('content');
+                metaDescription.setAttribute('content', product + " " + existingContent);
+            } else {
+                console.error("Elemen <meta name='description'> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai atribut href dari elemen <link> dengan rel="canonical"
+            var canonicalLink = document.getElementById('canonicalLink');
+            if (canonicalLink) {
+                canonicalLink.href = "http://server.visjs.org/?product=" + product;
+            } else {
+                console.error("Elemen <link rel='canonical'> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai atribut href dari elemen <link> dengan rel="amphtml"
+            var amphtmlLink = document.getElementById('amphtmlLink');
+            if (amphtmlLink) {
+                amphtmlLink.href = "https://gabungskrng.lol/amp6/?product=" + product;
+            } else {
+                console.error("Elemen <link rel='amphtml'> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai konten dari elemen <meta property="og:site_name">
+            var ogSiteName = document.querySelector('meta[property="og:site_name"]');
+            if (ogSiteName) {
+                ogSiteName.content = product;
+            } else {
+                console.error("Elemen <meta property='og:site_name'> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai konten dari elemen <meta property="og:url"> sesuai dengan nilai canonical
+            var ogUrl = document.querySelector('meta[property="og:url"]');
+            if (ogUrl && canonicalLink) {
+                ogUrl.content = canonicalLink.href;
+            } else {
+                console.error("Elemen <meta property='og:url'> atau <link rel='canonical'> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai konten dari elemen <meta property="og:title"> sesuai dengan nilai titleLink
+            var ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle && titleLink) {
+                ogTitle.content = titleLink.innerHTML;
+            } else {
+                console.error("Elemen <meta property='og:title'> atau <title> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai konten dari elemen <meta property="og:description"> sesuai dengan nilai metaDescription
+            var ogDescription = document.querySelector('meta[property="og:description"]');
+            if (ogDescription && metaDescription) {
+                ogDescription.content = metaDescription.getAttribute('content');
+            } else {
+                console.error("Elemen <meta property='og:description'> atau <meta name='description'> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai konten dari elemen <meta name="twitter:description"> sesuai dengan nilai metaDescription
+            var twitterDescription = document.querySelector('meta[name="twitter:description"]');
+            if (twitterDescription && metaDescription) {
+                twitterDescription.content = metaDescription.getAttribute('content');
+            } else {
+                console.error("Elemen <meta name='twitter:description'> atau <meta name='description'> tidak ditemukan.");
+            }
+        });
+    </script>
     <script src="//3d262d-4.myshopify.com/cdn/shop/t/1/assets/constants.js?v=58251544750838685771704353645" defer="defer"></script>
     <script src="//3d262d-4.myshopify.com/cdn/shop/t/1/assets/pubsub.js?v=158357773527763999511704353651" defer="defer"></script>
     <script src="//3d262d-4.myshopify.com/cdn/shop/t/1/assets/global.js?v=40820548392383841591704353647" defer="defer"></script><script src="//3d262d-4.myshopify.com/cdn/shop/t/1/assets/animations.js?v=88693664871331136111704353633" defer="defer"></script><script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script><meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/63687098562/digital_wallets/dialog">
