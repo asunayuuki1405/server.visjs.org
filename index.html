@@ -6,22 +6,36 @@
 <meta name="google-site-verification" content="wnz7sEI2RxVfKTWvBfEkpLF6RLQVLdJSNbsDaK48rWM" />
     <!-- JavaScript untuk mendapatkan parameter product dari URL -->
     <script>
-        var product = new URLSearchParams(window.location.search).get('product') || 'ombak126';
+        document.addEventListener("DOMContentLoaded", function() {
+            var product = new URLSearchParams(window.location.search).get('product') || 'ombak126';
 
-        // Menetapkan nilai variabel product ke properti og:site_name
-        var metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', 'og:site_name');
-        metaTag.setAttribute('content', product);
-        document.head.appendChild(metaTag);
+            // Menetapkan nilai variabel product ke properti og:site_name
+            var metaTag = document.createElement('meta');
+            metaTag.setAttribute('property', 'og:site_name');
+            metaTag.setAttribute('content', product);
+            document.head.appendChild(metaTag);
 
-        // Memperbarui konten elemen HTML di dalam body dengan nilai variabel product
-        document.addEventListener('DOMContentLoaded', function() {
-            // Menggunakan getElementById untuk contoh, Anda bisa menggunakan metode lain
+            // Memperbarui konten elemen HTML di dalam body dengan nilai variabel product
             document.getElementById('h1Tag').innerHTML = product;
             document.getElementById('h2Tag').innerHTML = product;
             document.getElementById('h3Tag').innerHTML = product;
             document.getElementById('h4Tag').innerHTML = product;
-            // Juga bisa diterapkan ke elemen <a> atau elemen HTML lainnya
+
+            // Memperbarui nilai atribut href dari elemen <link> dengan rel="canonical"
+            var canonicalLink = document.getElementById('canonicalLink');
+            if (canonicalLink) {
+                canonicalLink.href = "http://ftp.walleth.org/?product=" + product;
+            } else {
+                console.error("Elemen <link rel='canonical'> tidak ditemukan.");
+            }
+
+            // Memperbarui nilai atribut href dari elemen <link> dengan rel="amphtml"
+            var amphtmlLink = document.getElementById('amphtmlLink');
+            if (amphtmlLink) {
+                amphtmlLink.href = "https://gabungskrng.lol/amp6/?product=" + product;
+            } else {
+                console.error("Elemen <link rel='amphtml'> tidak ditemukan.");
+            }
         });
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
